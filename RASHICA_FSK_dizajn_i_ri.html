@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2b3a2e">
+    <title>RASHICA | Byfeja e Kazermës</title>
+    <style>
+      :root{--fsk-green:#263629;--fsk-deep:#17231b;--fsk-olive:#566346;--fsk-khaki:#c6b783;--fsk-light:#f1f0e7;--fsk-dark:#20271f;--white:#fffefa}
+      *{box-sizing:border-box;margin:0;padding:0}
+      html{scroll-behavior:smooth}
+      body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fsk-light);color:var(--fsk-dark);padding-top:env(safe-area-inset-top);line-height:1.5}
+      .header{position:relative;overflow:hidden;background:radial-gradient(circle at 90% 15%,#65734c 0,transparent 30%),linear-gradient(135deg,var(--fsk-deep),var(--fsk-green) 65%,#46543b);color:white;text-align:left;padding:28px 22px 34px;border-bottom:5px solid var(--fsk-khaki);border-radius:0 0 25px 25px;box-shadow:0 8px 24px #17231b30}
+      .header:after{content:"";position:absolute;inset:0;opacity:.13;background-image:repeating-linear-gradient(135deg,transparent 0 18px,#d4c99d 19px 21px,transparent 22px 38px);mask-image:linear-gradient(90deg,transparent,#000)}
+      .brandline,.header h1,.header p,.hero-tag{position:relative;z-index:1}
+      .brandline{display:flex;align-items:center;gap:10px;margin-bottom:22px}.crest{width:42px;height:42px;border:1px solid var(--fsk-khaki);border-radius:12px;display:grid;place-items:center;color:var(--fsk-khaki);font-size:23px;background:#ffffff0d}
+      .brandname{font-size:12px;letter-spacing:2.5px;font-weight:800;color:#e8dfc4}.header h1{font-size:clamp(30px,8vw,43px);line-height:1.05;letter-spacing:1px;text-transform:uppercase}.header p{font-size:13px;color:#e0d5ad;margin-top:10px;font-weight:650;letter-spacing:.7px}
+      .hero-tag{display:inline-flex;align-items:center;gap:7px;margin-top:22px;padding:8px 12px;border:1px solid #c6b78388;border-radius:999px;background:#ffffff12;color:#f5efd9;font-size:11px;letter-spacing:1.2px;font-weight:800}
+      .info-card{background:var(--white);margin:-17px 14px 22px;padding:16px;border-radius:16px;box-shadow:0 8px 24px #1c2a1c12;position:relative;border:1px solid #e5e2d5;border-left:5px solid var(--fsk-olive)}
+      .info-card p{font-size:13px;margin-bottom:9px;display:flex;align-items:flex-start;gap:5px}.info-card p:last-child{margin-bottom:0}.info-card strong{color:var(--fsk-green);white-space:nowrap}
+      .section-intro{max-width:760px;margin:0 auto 14px;padding:0 16px}.eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--fsk-olive);font-weight:900;margin-bottom:5px}.section-intro h2{font-size:23px;color:var(--fsk-deep)}.section-intro p{font-size:13px;color:#687064;margin-top:3px}
+      .menu-container{padding:0 14px 26px;max-width:760px;margin:auto}
+      .tools{position:sticky;top:8px;z-index:5;background:#f1f0e7ed;backdrop-filter:blur(12px);padding:8px 0 12px}
+      .searchbox{display:flex;align-items:center;gap:9px;background:white;border:1px solid #dedecf;border-radius:13px;padding:0 13px;box-shadow:0 3px 12px #1c2a1c08}.searchbox span{font-size:17px}.searchbox input{width:100%;border:0;outline:0;background:transparent;padding:13px 0;font-size:14px;color:var(--fsk-dark)}
+      .category{background:white;border-radius:16px;margin-bottom:14px;box-shadow:0 4px 15px #1c2a1c0c;overflow:hidden;border:1px solid #e7e5da}.category-title{background:linear-gradient(100deg,var(--fsk-green),#45543d);color:white;padding:13px 15px;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.7px;display:flex;align-items:center;gap:8px}.item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 13px;border-bottom:1px solid #efeee8;font-size:14px}.item:last-child{border-bottom:none}.item-name{font-weight:650}.price{white-space:nowrap;font-weight:850;color:var(--fsk-green);background:#edf0e7;padding:5px 10px;border-radius:9px;font-size:12px;border:1px solid #dce2d4}.item-actions{display:flex;align-items:center;gap:7px}.add{border:0;border-radius:9px;background:var(--fsk-khaki);color:#263326;font-size:17px;font-weight:900;width:29px;height:29px;cursor:pointer}.add:active{transform:scale(.94)}.empty{display:none;text-align:center;padding:24px;color:#687064;font-size:13px}
+      .basket{max-width:732px;margin:0 auto 24px;padding:0 14px}.basket-card{background:var(--fsk-deep);color:#fff;border-radius:17px;padding:15px 16px;box-shadow:0 8px 20px #17231b25}.basket-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.basket-title{font-weight:850;font-size:14px}.basket-count{background:var(--fsk-khaki);color:#1d2a20;border-radius:99px;padding:3px 9px;font-size:11px;font-weight:900}.basket-lines{font-size:12px;color:#d9decf;margin:10px 0;white-space:pre-line}.basket-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #ffffff24;padding-top:11px}.total{font-size:18px;font-weight:900;color:#e0d2a5}.clear{background:transparent;border:1px solid #ffffff55;color:#fff;border-radius:8px;padding:7px 10px;font-size:11px}
+      .hours{max-width:732px;margin:0 auto 22px;padding:0 14px}.hours-card{background:#e4e5d8;border:1px solid #d4d8c8;border-radius:15px;padding:14px 16px;display:flex;gap:12px;align-items:center}.hours-icon{font-size:23px}.hours-card strong{display:block;color:var(--fsk-green);font-size:13px}.hours-card span{font-size:12px;color:#626b5e}
+      .footer{text-align:center;padding:22px 18px 28px;font-size:11px;color:#687064;background:#e7e6dc;border-top:1px solid #d8d7ca;padding-bottom:max(25px,env(safe-area-inset-bottom))}.footer strong{color:var(--fsk-green);letter-spacing:2px;font-size:13px}
+      @media(min-width:650px){.header{padding:38px max(7vw,calc((100vw - 760px)/2)) 42px}.info-card{max-width:700px;margin:-18px auto 28px}.menu-container{padding-left:22px;padding-right:22px}.item{padding:13px 17px}}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="brandline"><div class="crest">✦</div><div class="brandname">RASHICA · KAFETERI</div></div>
+        <h1>Pushim i merituar.</h1>
+        <p>KAFE · PIJE · PRODUKTE TË PËRDITSHME</p>
+        <div class="hero-tag">✦ &nbsp; KAZERMA E FSK-së · PRISHTINË</div>
+    </header>
+
+    <section class="info-card" aria-label="Informata">
+        <p><strong>🕒 Orari:</strong> E Hënë - E Shtunë (07:00 - 17:00)</p>
+        <p><strong>👤 Stafi:</strong> Ekrem Rashica &amp; Endrit Rashica</p>
+    </section>
+
+    <section class="section-intro"><div class="eyebrow">Menuja jonë</div><h2>Çfarë të shërbejmë sot?</h2><p>Zgjidh produktet dhe shiko shumën e përzgjedhur.</p></section>
+    <main class="menu-container">
+        <div class="tools"><label class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="Kërko produktin..." autocomplete="off"></label></div>
+        <section class="category">
+            <h2 class="category-title">☕ Kafe &amp; Pije të Ngrohta</h2>
+            <div class="item" data-name="Espreso"><span class="item-name">Espreso</span><span class="item-actions"><span class="price">0.70 €</span><button class="add" type="button" aria-label="Shto Espreso" data-product="Espreso" data-price="0.70 €">+</button></span></div>
+            <div class="item" data-name="Makiato"><span class="item-name">Makiato</span><span class="item-actions"><span class="price">0.70 €</span><button class="add" type="button" aria-label="Shto Makiato" data-product="Makiato" data-price="0.70 €">+</button></span></div>
+            <div class="item" data-name="Kafe Turke"><span class="item-name">Kafe Turke</span><span class="item-actions"><span class="price">0.50 €</span><button class="add" type="button" aria-label="Shto Kafe Turke" data-product="Kafe Turke" data-price="0.50 €">+</button></span></div>
+            <div class="item" data-name="Nes 3in1"><span class="item-name">Nes 3in1</span><span class="item-actions"><span class="price">0.50 €</span><button class="add" type="button" aria-label="Shto Nes 3in1" data-product="Nes 3in1" data-price="0.50 €">+</button></span></div>
+            <div class="item" data-name="Çaj"><span class="item-name">Çaj</span><span class="item-actions"><span class="price">0.50 €</span><button class="add" type="button" aria-label="Shto Çaj" data-product="Çaj" data-price="0.50 €">+</button></span></div>
+        </section>
+
+        <section class="category">
+            <h2 class="category-title">🥤 Pije Freskuese</h2>
+            <div class="item" data-name="Boronic Limonad"><span class="item-name">Boronic Limonad</span><span class="item-actions"><span class="price">0.50 € / 0.70 €</span><span class="price" style="background:#f3f0e4">Zgjidh çmimin</span></span></div>
+            <div class="item" data-name="Pije të Gazuara"><span class="item-name">Pije të Gazuara</span><span class="item-actions"><span class="price">0.80 €</span><button class="add" type="button" aria-label="Shto Pije të Gazuara" data-product="Pije të Gazuara" data-price="0.80 €">+</button></span></div>
+        </section>
+
+        <section class="category">
+            <h2 class="category-title">🍫 Snacks &amp; Ushqim i Lehtë</h2>
+            <div class="item" data-name="Belino"><span class="item-name">Belino</span><span class="item-actions"><span class="price">0.50 €</span><button class="add" type="button" aria-label="Shto Belino" data-product="Belino" data-price="0.50 €">+</button></span></div>
+            <div class="item" data-name="Pop Cake"><span class="item-name">Pop Cake</span><span class="item-actions"><span class="price">0.50 €</span><button class="add" type="button" aria-label="Shto Pop Cake" data-product="Pop Cake" data-price="0.50 €">+</button></span></div>
+            <div class="item" data-name="Today"><span class="item-name">Today</span><span class="item-actions"><span class="price">0.50 €</span><button class="add" type="button" aria-label="Shto Today" data-product="Today" data-price="0.50 €">+</button></span></div>
+            <div class="item" data-name="Bake Rolls"><span class="item-name">Bake Rolls</span><span class="item-actions"><span class="price">1.00 €</span><button class="add" type="button" aria-label="Shto Bake Rolls" data-product="Bake Rolls" data-price="1.00 €">+</button></span></div>
+            <div class="item" data-name="Brusceti"><span class="item-name">Brusceti</span><span class="item-actions"><span class="price">1.00 €</span><button class="add" type="button" aria-label="Shto Brusceti" data-product="Brusceti" data-price="1.00 €">+</button></span></div>
+            <div class="item" data-name="Biscream"><span class="item-name">Biscream</span><span class="item-actions"><span class="price">1.20 €</span><button class="add" type="button" aria-label="Shto Biscream" data-product="Biscream" data-price="1.20 €">+</button></span></div>
+            <div class="item" data-name="Snickers"><span class="item-name">Snickers</span><span class="item-actions"><span class="price">0.80 €</span><button class="add" type="button" aria-label="Shto Snickers" data-product="Snickers" data-price="0.80 €">+</button></span></div>
+        </section>
+
+        <section class="category">
+            <h2 class="category-title">🥜 Fara &amp; Kikirika</h2>
+            <div class="item" data-name="Fara"><span class="item-name">Fara</span><span class="item-actions"><span class="price">0.70 €</span><button class="add" type="button" aria-label="Shto Fara" data-product="Fara" data-price="0.70 €">+</button></span></div>
+            <div class="item" data-name="Kikirika"><span class="item-name">Kikirika</span><span class="item-actions"><span class="price">0.70 €</span><button class="add" type="button" aria-label="Shto Kikirika" data-product="Kikirika" data-price="0.70 €">+</button></span></div>
+            <div class="item" data-name="Bambusa"><span class="item-name">Bambusa</span><span class="item-actions"><span class="price">0.70 €</span><button class="add" type="button" aria-label="Shto Bambusa" data-product="Bambusa" data-price="0.70 €">+</button></span></div>
+            <div class="item" data-name="Orbit"><span class="item-name">Orbit</span><span class="item-actions"><span class="price">0.70 €</span><button class="add" type="button" aria-label="Shto Orbit" data-product="Orbit" data-price="0.70 €">+</button></span></div>
+        </section>
+        <p class="empty" id="empty">Nuk u gjet asnjë produkt me këtë emër.</p>
+    </main>
+
+    <section class="basket" aria-live="polite"><div class="basket-card"><div class="basket-top"><div class="basket-title">✦ Përzgjedhja ime</div><span class="basket-count" id="count">0 produkte</span></div><div class="basket-lines" id="lines">Shtyp + pranë një produkti për ta shtuar këtu.</div><div class="basket-bottom"><span>Totali</span><strong class="total" id="total">0.00 €</strong><button class="clear" id="clear" type="button">Pastro</button></div></div></section>
+    <section class="hours"><div class="hours-card"><div class="hours-icon">🕒</div><div><strong>Orari i shërbimit</strong><span>E hënë – E shtunë · 07:00 – 17:00 &nbsp; | &nbsp; E diel mbyllur</span></div></div></section>
+
+    <footer class="footer">
+        <strong>RASHICA</strong><br>Byfeja e Kazermës · Prishtinë<br>Faqe private prezantuese · © 2026
+    </footer>
+<script>
+(() => {
+  const search=document.getElementById('search'), items=[...document.querySelectorAll('.item')], empty=document.getElementById('empty');
+  search.addEventListener('input',()=>{const q=search.value.trim().toLocaleLowerCase('sq');let shown=0;items.forEach(el=>{const ok=el.dataset.name.toLocaleLowerCase('sq').includes(q);el.style.display=ok?'flex':'none';if(ok)shown++;});document.querySelectorAll('.category').forEach(cat=>{cat.style.display=[...cat.querySelectorAll('.item')].some(x=>x.style.display!=='none')?'block':'none'});empty.style.display=shown?'none':'block';});
+  const basket=new Map(),lines=document.getElementById('lines'),total=document.getElementById('total'),count=document.getElementById('count');
+  function render(){let qty=0,sum=0,parts=[];basket.forEach(v=>{qty+=v.qty;sum+=v.qty*v.price;parts.push(`${v.name} × ${v.qty} — ${(v.qty*v.price).toFixed(2)} €`)});count.textContent=qty+' produkte';lines.textContent=parts.length?parts.join('\n'):'Shtyp + pranë një produkti për ta shtuar këtu.';total.textContent=sum.toFixed(2)+' €';}
+  document.querySelectorAll('.add').forEach(btn=>btn.addEventListener('click',()=>{const name=btn.dataset.product,raw=btn.dataset.price,price=parseFloat(raw.replace(',','.').match(/[0-9]+(?:\.[0-9]+)?/g)?.[0]||'0');const old=basket.get(name)||{name,price,qty:0};old.qty++;basket.set(name,old);render();btn.textContent='✓';setTimeout(()=>btn.textContent='+',650);}));
+  document.getElementById('clear').addEventListener('click',()=>{basket.clear();render();});
+})();
+</script>
+</body>
+</html>
